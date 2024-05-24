@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block titulo %}
+    {% include 'core/components/titulo1.html' with titulo="Aplicación de Ventas de Vehículos" %}
+{% endblock titulo %}
+{% block contenido %}
+
+    {% if user.is_authenticated %}
+        {{ mensaje }}
+        <p class="fs-2">Bienvenido {{ user.username }}</p>
+    {% endif %}
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <!--<div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0"
+                 src="{% static 'core/img/caja.webp' %}"
+                 alt="..." />
+        </div>-->
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">¡Bienvenidos!</h1>
+            <!--<p>
+                La Caja de Pandora
+            </p>-->
+            <!--<a class="btn btn-primary"
+               href="https://wa.me/542619999999"
+               target="_blank">WhatsApp</a>-->
+        </div>
+    </div>
+    <!-- Call to Action-->
+    <!--<div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body">
+            <p class="text-white m-0">
+                This call to action card is a great place to showcase some important information or display a clever tagline!
+            </p>
+        </div>
+    </div>-->
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+        {% include 'core/components/card.html' with titulo="Vehículos" texto="¡vendemos vehículos de todo tipo!" %}
+        {% include 'core/components/card.html' with titulo="Venta" texto="¡carga tu vehículo para venderlo!" %}
+        {% include 'core/components/card.html' with titulo="Registración" texto="registrarse es gratis, ¡accede para poder cargar tu vehículo o comprar uno!" %}
+    </div>
+{% endblock contenido %}

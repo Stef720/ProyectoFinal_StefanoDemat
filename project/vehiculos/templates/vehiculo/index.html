@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    Vehiculo
+{% endblock titulo %}
+{% block contenido %}
+    <div class="row row-cols-1 row-cols-md-2">
+        {% for vehiculos in vehiculo %}
+            <div class="col mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ vehiculo.nombre }} {{ vehiculo.tipo }}</h2>
+                        {% if vehiculo.pais_origen_id %}
+                            <p class="card-text">{{ vehiculo.pais_origen_id }}</p>
+                        {% else %}
+                            <p class="card-text">No registra país de origen.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+{% endblock contenido %}
